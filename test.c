@@ -69,7 +69,7 @@ int main() {
   assert(!(ok));
 
   //Test 7: testing \0
-  strcpy(string3, "\0  ");
+  strcpy(string3, "\0");
   ok = hasUniqueChars(string3);
   assert(!(ok));
 
