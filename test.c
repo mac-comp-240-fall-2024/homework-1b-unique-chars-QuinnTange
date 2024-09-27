@@ -1,5 +1,7 @@
 /*
- * TODO: Add an appropriate descriptive comment here
+ * By Quinn Tange
+ *A test file containing various tests for HasUniqueChars correctly identying if a string is:
+ *made up of letters a-z, A-Z, or various special characters between ASCII 32-127.
  */
 
 #include <stdio.h>    // printf
@@ -14,8 +16,7 @@ bool hasUniqueChars(char * inputStr);
 
 int main() {
 
-  // ------------------------------------------------------------
-  // Examples of declaring string constants
+  
   /* Example 1 */
   char string1[] = "A string declared as an array.\n";
 
@@ -26,13 +27,6 @@ int main() {
   char string3[128];   // can copy in up to 127 characters
                        // chose 128 because it is a multiple of 8 bytes
   strcpy(string3, "A string constant copied in.\n");
-
-  // You can uncomment these to see how the strings were initialized above.
-  // Then you can comment these out again once you see that the 
-  // strings were created correctly
-  // printf ("%s", string1);
-  // printf ("%s", string2);
-  // printf ("%s", string3);
 
   // -------------------------------------------------------------
   // Thorough and exhaustive tests of hasUniqueChars()  
@@ -49,18 +43,46 @@ int main() {
   ok = hasUniqueChars(string3);
   assert(ok);
   
-  // TODO: add your tests here
+  // Test 3: Tests special characters. They are all in the ASCII range 32-127 and none are duplicates of each other, 
+  //so if any character fails the test, something is wrong.
+  strcpy(string3, "{}!@|~'&$#?><=;;/.,*()");
+  ok = hasUniqueChars(string3);
+  assert(ok);
 
+  //Test 4: Arbitrary string which should pass.
+  strcpy(string3, "a s hdfm,~");
+  ok = hasUniqueChars(string3);
+  assert(ok);
 
+  //Test 5: repeating character 'a'
+  strcpy(string3, "a !@#$a");
+  ok = hasUniqueChars(string3);
+  assert(!(ok));
 
-  // NOTE: if you add a \n to any tests, this should cause the
-  //       exit failure given. Keep this test last so you can check 
-  //       that others pass or fail as you expect them to.
+  //Test 6: testing more non-ASCII characters
+  strcpy(string3, "こんにちわ");
+  ok = hasUniqueChars(string3);
+  assert(!(ok));
+
+  //Test 7: testing \0
+  strcpy(string3, "\0");
+  ok = hasUniqueChars(string3);
+  assert(!(ok));
+
+  //Test 8: testing \r
+  strcpy(string3, "\r");
+  ok = hasUniqueChars(string3);
+  assert(!(ok));
+
+  //Test 9: testing multiple spaces
+  strcpy(string3, "a b s c d ");
+  ok = hasUniqueChars(string3);
+  assert(ok);
+  
+  //Final Test given by instructor
   strcpy(string3, "a b cc\n");
   ok = hasUniqueChars(string3);
-  // other examples that should fail that you can place in strings
-  // are \0 or \t or \r
-  // See problem description for more details about escape sequences
-  
+
+
   return 0;
 }
