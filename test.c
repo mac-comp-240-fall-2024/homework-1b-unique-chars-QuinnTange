@@ -2,10 +2,6 @@
  * By Quinn Tange
  *A test file containing various tests for HasUniqueChars correctly identying if a string is:
  *made up of letters a-z, A-Z, or various special characters between ASCII 32-127.
- * Known Error: in the starter code for Test 1. assert(!(ok)) is used to identify if the testcase should fail, but 
- * in copying this code, I am not able to see all the other test cases in the terminal because the code exits. I 
- * followed the template, but I'm not sure what the difference is. I am confident my hasUniqueChars method is working
- * correctly but the test cases are not necessarily showing that all at once, you may have to comment some at a time unfortunately.
  */
 
 #include <stdio.h>    // printf

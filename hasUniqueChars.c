@@ -1,8 +1,7 @@
 /*
  * hasUniqueChars.c
- * 
- * TODO: replace this line with lines containing a description
- * 
+ * This file primarily is used to check if a given string has all unique characters within
+ * the ASCII range 32-127. There is also seeBits, a helper functions for debugging≥
  * Author: Quinn Tange
  */
 
